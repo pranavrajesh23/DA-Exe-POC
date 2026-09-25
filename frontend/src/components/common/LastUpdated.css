@@ -2,18 +2,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .lu-label {
   margin: 0;
-  font-size: 12px;
+  font-size: 11px;
   color: #666;
 }
 
 .lu-value {
-  margin: 4px 0 0 0;
-  font-size: 14px;
+  margin: 3px 0 0 0;
+  font-size: 12px;
   font-weight: 600;
   color: #1c2333;
 }
