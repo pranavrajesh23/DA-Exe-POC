@@ -60,23 +60,25 @@ export function FleetHealthDashboard() {
             <StatCard label="Total Sales" value={`$${filteredRows.reduce((s, r) => s + Number(r[VALUE_COLUMN] || 0), 0).toLocaleString()}`} />,
           ]}
           topChart={<LineChartWidget labels={byProduct.labels} values={byProduct.values} label="Sales Trend" />}
+          topChartTitle="Sales Trend"
           columns={[
             [
-              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#4C9AFF" />, span: 2 },
-              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#4C9AFF" />, span: 2 },
+              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#4C9AFF" />, span: 2, title: 'Sales by Product (Bar)' },
+              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#4C9AFF" />, span: 2, title: 'Sales by Product (Bar)' },
             ],
             [
-              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} color="#4C9AFF" />, span: 1 },
-              { content: <PieChartWidget labels={byProduct.labels} values={byProduct.values} />, span: 1 },
-              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#4C9AFF" />, span: 1 },
-              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} color="#4C9AFF" />, span: 1 },
+              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} color="#4C9AFF" />, span: 1, title: 'Bar Chart' },
+              { content: <PieChartWidget labels={byProduct.labels} values={byProduct.values} />, span: 1, title: 'Pie Chart' },
+              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#4C9AFF" />, span: 1, title: 'Bar Chart' },
+              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} color="#4C9AFF" />, span: 1, title: 'Bar Chart' },
             ],
             [
-              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#4C9AFF" />, span: 2 },
-              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#4C9AFF" />, span: 2 },
+              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#4C9AFF" />, span: 2, title: 'Sales by Product (Bar)' },
+              { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#4C9AFF" />, span: 2, title: 'Sales by Product (Bar)' },
             ],
           ]}
           table={<DataTable columns={data.columns} rows={filteredRows} maxHeight={320} />}
+          tableTitle="All Sample Rows"
         />
       )}
     </>

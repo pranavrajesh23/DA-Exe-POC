@@ -1,18 +1,29 @@
 import { ReactNode } from 'react'
 import './DashboardLayout.css'
 
-type ColumnPanel = { content: ReactNode; span: number }
+type ColumnPanel = { content: ReactNode; span: number; title?: string }
 
 type DashboardLayoutProps = {
   searchBox: ReactNode
   lastUpdated: ReactNode
   kpis: ReactNode[]
   topChart: ReactNode
+  topChartTitle?: string
   columns: ColumnPanel[][]
   table: ReactNode
+  tableTitle?: string
 }
 
-export function DashboardLayout({ searchBox, lastUpdated, kpis, topChart, columns, table }: DashboardLayoutProps) {
+export function DashboardLayout({
+  searchBox,
+  lastUpdated,
+  kpis,
+  topChart,
+  topChartTitle,
+  columns,
+  table,
+  tableTitle,
+}: DashboardLayoutProps) {
   return (
     <div className="dl-wrap">
       <div className="dl-top-row">
@@ -25,7 +36,10 @@ export function DashboardLayout({ searchBox, lastUpdated, kpis, topChart, column
           <div className="dl-panel dl-kpi" key={i}>{kpi}</div>
         ))}
 
-        <div className="dl-panel dl-top-chart">{topChart}</div>
+        <div className="dl-panel dl-top-chart">
+          {topChartTitle && <h3 className="dl-panel-title">{topChartTitle}</h3>}
+          <div className="dl-panel-body">{topChart}</div>
+        </div>
       </div>
 
       <div className="dl-columns">
@@ -43,14 +57,18 @@ export function DashboardLayout({ searchBox, lastUpdated, kpis, topChart, column
                 }}
                 key={`${colIndex}-${i}`}
               >
-                {item.content}
+                {item.title && <h3 className="dl-panel-title">{item.title}</h3>}
+                <div className="dl-panel-body">{item.content}</div>
               </div>
             )
           })
         })}
       </div>
 
-      <div className="dl-panel dl-table">{table}</div>
+      <div className="dl-panel dl-table">
+        {tableTitle && <h3 className="dl-panel-title">{tableTitle}</h3>}
+        <div className="dl-panel-body">{table}</div>
+      </div>
     </div>
   )
 }
