@@ -24,3 +24,18 @@ def fetch_sales_by_product(user_token: str):
             columns = [c[0] for c in cursor.description]
             rows = cursor.fetchall()
             return columns, rows
+
+
+def fetch_sales_weekly(user_token: str):
+    query = """
+        SELECT date_trunc('week', dateTime) AS week_start, SUM(totalPrice) AS total_sales
+        FROM samples.bakehouse.sales_transactions
+        GROUP BY week_start
+        ORDER BY week_start
+    """
+    with get_connection(user_token) as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(query)
+            columns = [c[0] for c in cursor.description]
+            rows = cursor.fetchall()
+            return columns, rows

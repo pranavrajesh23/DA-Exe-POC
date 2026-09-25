@@ -1,5 +1,5 @@
+import { Select, FilterDropdown } from '@quantaservices/quanta-ui-toolkit'
 import { useFilters } from '../../../context/FilterContext/FilterContext'
-import { MultiSelectDropdown } from '../MultiSelectDropdown/MultiSelectDropdown'
 import './FilterBar.css'
 
 type FilterBarProps = {
@@ -12,15 +12,19 @@ export function FilterBar({ years, products }: FilterBarProps) {
 
   return (
     <div className="filter-bar">
-      <div className="filter-group">
-        <label>Year</label>
-        <select value={selectedYear ?? ''} onChange={e => setSelectedYear(e.target.value || null)}>
-          <option value="">All</option>
-          {years.map(y => <option key={y} value={y}>{y}</option>)}
-        </select>
-      </div>
+      <Select
+        label="Year"
+        value={selectedYear ?? ''}
+        onChange={value => setSelectedYear(value || null)}
+        placeholder="All"
+        options={years.map(y => ({ label: y, value: y }))}
+      />
 
-      <MultiSelectDropdown label="Product" options={products} selected={selectedProducts} onChange={setSelectedProducts} />
+      <FilterDropdown
+        options={products.map(p => ({ label: p, value: p }))}
+        selected={selectedProducts}
+        onChange={setSelectedProducts}
+      />
     </div>
   )
 }

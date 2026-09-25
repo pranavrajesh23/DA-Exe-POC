@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
-import './MultiSelectDropdown.css'
+import './FilterChip.css'
 
-type MultiSelectDropdownProps = {
+type FilterChipProps = {
   label: string
   options: string[]
   selected: string[]
   onChange: (values: string[]) => void
 }
 
-export function MultiSelectDropdown({ label, options, selected, onChange }: MultiSelectDropdownProps) {
+export function FilterChip({ label, options, selected, onChange }: FilterChipProps) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -27,14 +27,14 @@ export function MultiSelectDropdown({ label, options, selected, onChange }: Mult
   const summary = selected.length === 0 ? 'All' : selected.length === 1 ? selected[0] : `${selected.length} selected`
 
   return (
-    <div className="msd" ref={ref}>
-      <button className="msd-trigger" onClick={() => setOpen(o => !o)}>
-        {label}: {summary} ▾
+    <div className="filter-chip" ref={ref}>
+      <button type="button" className="filter-chip-trigger" onClick={() => setOpen(o => !o)}>
+        {label}: {summary}
       </button>
       {open && (
-        <div className="msd-panel">
+        <div className="filter-chip-panel">
           {options.map(opt => (
-            <label key={opt} className="msd-option">
+            <label key={opt} className="filter-chip-option">
               <input type="checkbox" checked={selected.includes(opt)} onChange={() => toggle(opt)} />
               {opt}
             </label>
