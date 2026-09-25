@@ -1,0 +1,40 @@
+.msd { position: relative; }
+
+.msd-trigger {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  min-width: 140px;
+  text-align: left;
+}
+
+.msd-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 20;
+  min-width: 200px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 6px 0;
+}
+
+.msd-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.msd-option:hover {
+  background: #f5f7fa;
+}

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
-from core.auth import get_current_user_token
-from services.sales_service import get_sales_sample, get_sales_by_product
+from backend.core.auth import get_current_user_token
+from backend.services.sales_service import get_sales_sample, get_sales_by_product
 
 router = APIRouter()
 

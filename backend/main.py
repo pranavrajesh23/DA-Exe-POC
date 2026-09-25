@@ -6,7 +6,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
-from api.routes import health, whoami, sales
+from backend.api.routes import health, whoami, sales
 
 app = FastAPI(title="DA-Exe-POC")
 

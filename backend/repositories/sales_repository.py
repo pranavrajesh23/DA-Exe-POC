@@ -1,4 +1,4 @@
-from repositories.connection import get_connection
+from backend.repositories.connection import get_connection
 
 
 def fetch_sales_sample(user_token: str, limit: int = 500):

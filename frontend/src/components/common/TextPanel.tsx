@@ -1,15 +1,17 @@
 import './TextPanel.css'
 
 type TextPanelProps = {
-  title?: string
-  text: string
+  title: string
+  lines: string[]
 }
 
-export function TextPanel({ title, text }: TextPanelProps) {
+export function TextPanel({ title, lines }: TextPanelProps) {
   return (
     <div className="text-panel">
-      {title && <h3 className="text-panel-title">{title}</h3>}
-      <div className="text-panel-body">{text}</div>
+      <h3 className="text-panel-title">{title}</h3>
+      {lines.map((line, i) => (
+        <p className="text-panel-line" key={i}>{line}</p>
+      ))}
     </div>
   )
 }

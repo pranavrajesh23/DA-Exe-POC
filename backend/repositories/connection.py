@@ -1,7 +1,7 @@
 import os
 from databricks import sql
 
-from core.config import cfg
+from backend.core.config import cfg
 
 
 def get_connection(user_token: str):
