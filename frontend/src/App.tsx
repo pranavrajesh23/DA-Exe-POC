@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Layout } from './components/layout/Layout/Layout'
-import { FleetHealthDashboard } from './pages/FleetHealh/FleetHealthDashboard'
+import { Home } from './pages/Home'
 import { FilterProvider } from './context/FilterContext/FilterContext'
 import './App.css'
 
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<FleetHealthDashboard />} />
+            <Route index element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>

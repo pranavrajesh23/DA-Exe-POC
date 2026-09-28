@@ -1,0 +1,316 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Migration Plan" id="migration-plan">
+    <mxGraphModel dx="1058" dy="533" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1750" pageHeight="770" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#CD0A1B;" value="Migration Plan: Dashboard -&amp;gt; Databricks App Tab" vertex="1">
+          <mxGeometry height="30" width="1000" x="40" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontColor=#575454;" value="Correct order: audit and reuse the VISUALS, audit and reuse the DESIGN, then compose a new page by importing both" vertex="1">
+          <mxGeometry height="24" width="1000" x="40" y="42" as="geometry" />
+        </mxCell>
+        <mxCell id="box1" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CD0A1B;strokeWidth=2;fontSize=13;fontColor=#221F1F;align=left;spacingLeft=8;verticalAlign=top;spacingTop=8;" value="1 . AUDIT THE VISUALS&#xa;Take every chart, KPI, table and filter in the static dashboard and rebuild each one as its own reusable component." vertex="1">
+          <mxGeometry height="90" width="380" x="40" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="box2" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F0941C;strokeWidth=2;fontSize=13;fontColor=#221F1F;align=left;spacingLeft=8;verticalAlign=top;spacingTop=8;" value="2 . AUDIT THE DESIGN&#xa;Study the page&#39;s layout only (top row, side bar chart, middle pie chart...) and rebuild it as an empty, reusable design template with hollow slots." vertex="1">
+          <mxGeometry height="90" width="380" x="470" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="box3" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#221F1F;strokeWidth=2;fontSize=13;fontColor=#221F1F;align=left;spacingLeft=8;verticalAlign=top;spacingTop=8;" value="3 . COMPOSE THE PAGE&#xa;Create the new page / tab. Import the design template you need, then import the visual components you need into its slots." vertex="1">
+          <mxGeometry height="90" width="380" x="900" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="box4" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#221F1F;strokeColor=#221F1F;strokeWidth=2;fontSize=13;fontColor=#FFFFFF;align=left;spacingLeft=8;verticalAlign=top;spacingTop=8;" value="4 . REGISTER THE TAB&#xa;Add the composed page as a new tab in the shared App Shell. The dashboard is live." vertex="1">
+          <mxGeometry height="90" width="380" x="1330" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="box1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#221F1F;strokeWidth=2;" target="box2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="box2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#221F1F;strokeWidth=2;" target="box3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e34" edge="1" parent="1" source="box3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#221F1F;strokeWidth=2;" target="box4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="box1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#CD0A1B;fontColor=#CD0A1B;fontSize=11;exitX=0.5;exitY=0;entryX=0.25;entryY=0;" target="box3" value="import the visual components">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="69.84" />
+              <mxPoint x="995.05" y="69.84" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eLoop" edge="1" parent="1" source="box4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#F0941C;fontColor=#F0941C;fontSize=12;exitX=0.5;exitY=1;entryX=0.5;entryY=1;" target="box1" value="next dashboard (e.g. Battery Assets): reuse the library first">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1520" y="545" />
+              <mxPoint x="230" y="545" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p1title" parent="1" style="text;html=1;align=left;fontSize=13;fontStyle=1;fontColor=#8B8A8A;" value="Picture: each visual becomes its own reusable component" vertex="1">
+          <mxGeometry height="20" width="380" x="40" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="c1bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;" value="" vertex="1">
+          <mxGeometry height="110" width="110" x="55" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="c1bar1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8B8A8A;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="20" width="16" x="75" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="c1bar2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CD0A1B;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="35" width="16" x="99" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="c1bar3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F0941C;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="50" width="16" x="123" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="c1lbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#221F1F;" value="BarChartWidget" vertex="1">
+          <mxGeometry height="20" width="100" x="60" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c2bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;" value="" vertex="1">
+          <mxGeometry height="110" width="110" x="180" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="c2pie" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F0941C;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="70" width="70" x="200" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="c2l1" edge="1" parent="1" style="html=1;endArrow=none;strokeColor=#FFFFFF;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="235" y="280" as="sourcePoint" />
+            <mxPoint x="235" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c2l2" edge="1" parent="1" style="html=1;endArrow=none;strokeColor=#FFFFFF;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="235" y="280" as="sourcePoint" />
+            <mxPoint x="270" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c2lbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#221F1F;" value="PieChartWidget" vertex="1">
+          <mxGeometry height="20" width="100" x="185" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c3bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;" value="" vertex="1">
+          <mxGeometry height="110" width="110" x="305" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="c3line" edge="1" parent="1" style="html=1;endArrow=none;strokeColor=#CD0A1B;strokeWidth=3;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="343" y="260" />
+              <mxPoint x="361" y="280" />
+            </Array>
+            <mxPoint x="325" y="290" as="sourcePoint" />
+            <mxPoint x="395" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c3lbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#221F1F;" value="LineChartWidget" vertex="1">
+          <mxGeometry height="20" width="100" x="310" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c4bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;" value="" vertex="1">
+          <mxGeometry height="110" width="110" x="55" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="c4r1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAD9D9;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="10" width="70" x="75" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="c4r2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAD9D9;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="10" width="70" x="75" y="391" as="geometry" />
+        </mxCell>
+        <mxCell id="c4r3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAD9D9;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="10" width="70" x="75" y="407" as="geometry" />
+        </mxCell>
+        <mxCell id="c4lbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#221F1F;" value="DataTable" vertex="1">
+          <mxGeometry height="20" width="100" x="60" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="c5bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;" value="" vertex="1">
+          <mxGeometry height="110" width="110" x="180" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="c5pill" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CD0A1B;fontColor=#CD0A1B;fontSize=10;" value="Filter ▾" vertex="1">
+          <mxGeometry height="24" width="80" x="195" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="c5lbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#221F1F;" value="FilterChip" vertex="1">
+          <mxGeometry height="20" width="100" x="185" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="c6bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;" value="" vertex="1">
+          <mxGeometry height="110" width="110" x="305" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="c6box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#221F1F;strokeColor=none;fontColor=#FFFFFF;fontSize=16;fontStyle=1;" value="$42K" vertex="1">
+          <mxGeometry height="40" width="80" x="320" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="c6lbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#221F1F;" value="StatCard" vertex="1">
+          <mxGeometry height="20" width="100" x="310" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="p1caption" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#575454;" value="Built on the Quanta UI Toolkit: PageHeader, Tabs, StatCard, DataTable, Card" vertex="1">
+          <mxGeometry height="20" width="380" x="40" y="475" as="geometry" />
+        </mxCell>
+        <mxCell id="p2title" parent="1" style="text;html=1;align=left;fontSize=13;fontStyle=1;fontColor=#8B8A8A;" value="Picture: the layout on its own, as an empty reusable template" vertex="1">
+          <mxGeometry height="20" width="380" x="470" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="d_frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#8B8A8A;" value="" vertex="1">
+          <mxGeometry height="260" width="340" x="490" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="d_header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F4F4F4;strokeColor=#DAD9D9;fontSize=10;fontColor=#8B8A8A;" value="Header / Filters" vertex="1">
+          <mxGeometry height="24" width="340" x="490" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kpi1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#CD0A1B;fontColor=#CD0A1B;fontSize=10;" value="KPI slot" vertex="1">
+          <mxGeometry height="40" width="108" x="490" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kpi2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#CD0A1B;fontColor=#CD0A1B;fontSize=10;" value="KPI slot" vertex="1">
+          <mxGeometry height="40" width="108" x="606" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kpi3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#CD0A1B;fontColor=#CD0A1B;fontSize=10;" value="KPI slot" vertex="1">
+          <mxGeometry height="40" width="108" x="722" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="d_top" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#F0941C;fontColor=#F0941C;fontSize=10;" value="Top Chart slot" vertex="1">
+          <mxGeometry height="60" width="340" x="490" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="d_left" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#F0941C;fontColor=#F0941C;fontSize=10;" value="Chart slot" vertex="1">
+          <mxGeometry height="60" width="166" x="490" y="383" as="geometry" />
+        </mxCell>
+        <mxCell id="d_right" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#F0941C;fontColor=#F0941C;fontSize=10;" value="Chart slot" vertex="1">
+          <mxGeometry height="60" width="166" x="664" y="383" as="geometry" />
+        </mxCell>
+        <mxCell id="d_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#8B8A8A;fontColor=#8B8A8A;fontSize=10;" value="Table slot" vertex="1">
+          <mxGeometry height="36" width="340" x="490" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="p3title" parent="1" style="text;html=1;align=left;fontSize=13;fontStyle=1;fontColor=#8B8A8A;" value="Picture: same template, now filled with imported components" vertex="1">
+          <mxGeometry height="20" width="380" x="900" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="f_frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#221F1F;" value="" vertex="1">
+          <mxGeometry height="260" width="340" x="920" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="f_header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#221F1F;strokeColor=#221F1F;fontColor=#FFFFFF;fontSize=10;" value="Header / Filters" vertex="1">
+          <mxGeometry height="24" width="340" x="920" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="f_kpi1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;fontSize=18;fontStyle=1;fontColor=#221F1F;" value="128" vertex="1">
+          <mxGeometry height="40" width="108" x="920" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="f_kpi2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;fontSize=18;fontStyle=1;fontColor=#CD0A1B;" value="$42K" vertex="1">
+          <mxGeometry height="40" width="108" x="1036" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="f_kpi3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;fontSize=18;fontStyle=1;fontColor=#221F1F;" value="6" vertex="1">
+          <mxGeometry height="40" width="108" x="1152" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="f_top" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;" value="" vertex="1">
+          <mxGeometry height="60" width="340" x="920" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="f_topline" edge="1" parent="1" style="html=1;endArrow=none;strokeColor=#CD0A1B;strokeWidth=3;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="330" />
+              <mxPoint x="1090" y="345" />
+            </Array>
+            <mxPoint x="935" y="360" as="sourcePoint" />
+            <mxPoint x="1245" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_left" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;" value="" vertex="1">
+          <mxGeometry height="60" width="166" x="920" y="383" as="geometry" />
+        </mxCell>
+        <mxCell id="f_bar1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8B8A8A;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="15" width="14" x="935" y="423" as="geometry" />
+        </mxCell>
+        <mxCell id="f_bar2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CD0A1B;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="25" width="14" x="955" y="413" as="geometry" />
+        </mxCell>
+        <mxCell id="f_bar3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F0941C;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="20" width="14" x="975" y="418" as="geometry" />
+        </mxCell>
+        <mxCell id="f_right" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;" value="" vertex="1">
+          <mxGeometry height="60" width="166" x="1094" y="383" as="geometry" />
+        </mxCell>
+        <mxCell id="f_pie" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F0941C;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="44" width="44" x="1155" y="391" as="geometry" />
+        </mxCell>
+        <mxCell id="f_pl1" edge="1" parent="1" style="html=1;endArrow=none;strokeColor=#FFFFFF;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1177" y="413" as="sourcePoint" />
+            <mxPoint x="1177" y="391" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_pl2" edge="1" parent="1" style="html=1;endArrow=none;strokeColor=#FFFFFF;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1177" y="413" as="sourcePoint" />
+            <mxPoint x="1199" y="413" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_table" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;" value="" vertex="1">
+          <mxGeometry height="36" width="340" x="920" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="f_row1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAD9D9;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="6" width="310" x="935" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="f_row2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAD9D9;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="6" width="310" x="935" y="468" as="geometry" />
+        </mxCell>
+        <mxCell id="f_row3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAD9D9;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="6" width="310" x="935" y="477" as="geometry" />
+        </mxCell>
+        <mxCell id="p4title" parent="1" style="text;html=1;align=left;fontSize=13;fontStyle=1;fontColor=#8B8A8A;" value="Picture: N dashboards, 1 App -- each one is just another tab" vertex="1">
+          <mxGeometry height="20" width="380" x="1330" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="a_frame" parent="1" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#221F1F;strokeColor=#221F1F;" value="" vertex="1">
+          <mxGeometry height="230" width="350" x="1345" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="a_tab1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CD0A1B;strokeColor=none;fontColor=#FFFFFF;fontSize=9;" value="Exec Summary" vertex="1">
+          <mxGeometry height="28" width="88" x="1355" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="a_tab2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3C3A3A;strokeColor=none;fontColor=#DAD9D9;fontSize=9;" value="Fleet Health" vertex="1">
+          <mxGeometry height="28" width="88" x="1449" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="a_tab3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3C3A3A;strokeColor=none;fontColor=#DAD9D9;fontSize=9;" value="Battery Assets" vertex="1">
+          <mxGeometry height="28" width="88" x="1543" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="a_tab4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#F0941C;fontColor=#F0941C;fontSize=9;" value="+ New" vertex="1">
+          <mxGeometry height="28" width="48" x="1637" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="a_caption" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#575454;" value="N dashboards -&amp;gt; 1 App, 1 login -- Executive Summary and Battery Assets already share this shell" vertex="1">
+          <mxGeometry height="20" width="380" x="1271" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="a_content" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F4F4F4;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="170" width="325" x="1355" y="283" as="geometry" />
+        </mxCell>
+        <mxCell id="a_cell00" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;fontSize=11;fontColor=#221F1F;" value="KPIs" vertex="1">
+          <mxGeometry height="75" width="150" x="1365" y="293" as="geometry" />
+        </mxCell>
+        <mxCell id="a_cell10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;fontSize=11;fontColor=#221F1F;" value="Bar / Pie Charts" vertex="1">
+          <mxGeometry height="75" width="145" x="1525" y="293" as="geometry" />
+        </mxCell>
+        <mxCell id="a_cell01" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;fontSize=11;fontColor=#221F1F;" value="Trend Line" vertex="1">
+          <mxGeometry height="65" width="150" x="1365" y="378" as="geometry" />
+        </mxCell>
+        <mxCell id="a_cell11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DAD9D9;fontSize=11;fontColor=#221F1F;" value="Data Table" vertex="1">
+          <mxGeometry height="65" width="145" x="1525" y="378" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl2" parent="1" style="text;html=1;align=left;fontSize=13;fontStyle=1;fontColor=#8B8A8A;" value="TARGET ARCHITECTURE &amp; LIVE DATA FLOW -- what actually powers every tab" vertex="1">
+          <mxGeometry height="20" width="700" x="40" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="boxF" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#221F1F;strokeColor=#221F1F;fontColor=#FFFFFF;fontSize=13;" value="Databricks SQL Warehouse&#xa;single governed source of truth" vertex="1">
+          <mxGeometry height="90" width="260" x="40" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="boxG" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#221F1F;strokeColor=#221F1F;fontColor=#FFFFFF;fontSize=13;" value="FastAPI Backend&#xa;api/routes -&gt; services -&gt; repositories" vertex="1">
+          <mxGeometry height="90" width="260" x="360" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="boxH" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#221F1F;strokeColor=#221F1F;fontColor=#FFFFFF;fontSize=13;" value="React Frontend&#xa;Quanta UI Toolkit + the reusable design &amp; chart components from steps 1-2" vertex="1">
+          <mxGeometry height="90" width="300" x="680" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="boxI" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#CD0A1B;strokeColor=#CD0A1B;fontColor=#FFFFFF;fontSize=13;" value="Databricks App Shell&#xa;tab-scoped: N dashboards, 1 login, 1 URL" vertex="1">
+          <mxGeometry height="90" width="280" x="1191" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="eFG" edge="1" parent="1" source="boxF" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#221F1F;strokeWidth=2;" target="boxG">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eGH" edge="1" parent="1" source="boxG" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#221F1F;strokeWidth=2;" target="boxH">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eHI" edge="1" parent="1" source="boxH" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#221F1F;strokeWidth=2;fontSize=11;fontColor=#575454;" target="boxI" value="click-to-filter, like the old dashboards">
+          <mxGeometry relative="1" x="-0.0964" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eHbox3" edge="1" parent="1" source="boxH" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;strokeColor=#8B8A8A;fontColor=#8B8A8A;fontSize=11;exitX=1;exitY=0;entryX=0.5;entryY=1;" target="box3" value="this is what step 3 is built with">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

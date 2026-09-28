@@ -13,9 +13,11 @@ type PieChartWidgetProps = {
 const defaultColors = ['#CD0A1B', '#221F1F', '#8B8A8A', '#F0941C', '#AA0011', '#C0BFBF']
 
 export function PieChartWidget({ labels, values, colors = defaultColors, selectedLabel, onSliceClick }: PieChartWidgetProps) {
-  const backgroundColor = selectedLabel
-    ? labels.map((l, i) => (l === selectedLabel ? colors[i % colors.length] : `${colors[i % colors.length]}40`))
-    : colors
+  // Always an array (never fall back to the plain `colors` array reference
+  // unmodified) so Chart.js repaints every slice back to full color once a
+  // selection is cleared -- see BarChartWidget for why the type must stay
+  // consistent across renders.
+  const backgroundColor = labels.map((l, i) => (!selectedLabel || l === selectedLabel ? colors[i % colors.length] : `${colors[i % colors.length]}40`))
 
   const data = {
     labels,

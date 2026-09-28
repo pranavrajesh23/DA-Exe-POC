@@ -6,7 +6,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
-from backend.api.routes import health, whoami, sales
+from backend.api.routes import health, whoami, sales, battery_assets
 
 app = FastAPI(title="DA-Exe-POC")
 
@@ -14,6 +14,7 @@ app = FastAPI(title="DA-Exe-POC")
 app.include_router(health.router)
 app.include_router(whoami.router)
 app.include_router(sales.router)
+app.include_router(battery_assets.router)
 
 # --- Static Files Setup ---
 static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
