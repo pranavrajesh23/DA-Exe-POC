@@ -4,10 +4,12 @@ import { groupSumBy } from '../../utils/aggregate'
 import { formatDateShort } from '../../utils/date'
 import { useFilters } from '../../context/FilterContext/FilterContext'
 import { useCrossFilter } from '../../hooks/useCrossFilter'
+import { downloadCsv } from '../../utils/downloadFile'
 import { DashboardLayout } from '../../design/DashboardLayout/DashboardLayout'
 import { BarChartWidget } from '../../components/charts/BarChartWidget/BarChartWidget'
 import { LineChartWidget } from '../../components/charts/LineChartWidget/LineChartWidget'
 import { PieChartWidget } from '../../components/charts/PieChartWidget/PieChartWidget'
+import { ExportButton } from '../../components/common/ExportButton/ExportButton'
 import './ExecutiveSummaryDashboard.css'
 
 export function ExecutiveSummaryDashboard() {
@@ -57,22 +59,27 @@ export function ExecutiveSummaryDashboard() {
       topChartTitle="Sales Trend"
       columns={[
         [
-          { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#CD0A1B" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 2, title: 'Sales by Product (Bar)' },
-          { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#8B8A8A" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 2, title: 'Sales by Product (Bar)' },
+          { content: <BarChartWidget label="Sales by Product (Bar 1)" labels={byProduct.labels} values={byProduct.values} horizontal color="#CD0A1B" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 2, title: 'Sales by Product (Bar)' },
+          { content: <BarChartWidget label="Sales by Product (Bar 2)" labels={byProduct.labels} values={byProduct.values} horizontal color="#8B8A8A" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 2, title: 'Sales by Product (Bar)' },
         ],
         [
-          { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} color="#F0941C" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 1, title: 'Bar Chart' },
-          { content: <PieChartWidget labels={byProduct.labels} values={byProduct.values} selectedLabel={selectedProductLabel} onSliceClick={handleProductClick} />, span: 1, title: 'Pie Chart' },
-          { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#CD0A1B" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 1, title: 'Bar Chart' },
-          { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} color="#CA8A04" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 1, title: 'Bar Chart' },
+          { content: <BarChartWidget label="Sales by Product" labels={byProduct.labels} values={byProduct.values} color="#F0941C" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 1, title: 'Bar Chart' },
+          { content: <PieChartWidget title="Sales by Product (Pie)" labels={byProduct.labels} values={byProduct.values} selectedLabel={selectedProductLabel} onSliceClick={handleProductClick} />, span: 1, title: 'Pie Chart' },
+          { content: <BarChartWidget label="Sales by Product (Bar 3)" labels={byProduct.labels} values={byProduct.values} horizontal color="#CD0A1B" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 1, title: 'Bar Chart' },
+          { content: <BarChartWidget label="Sales by Product (Bar 4)" labels={byProduct.labels} values={byProduct.values} color="#CA8A04" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 1, title: 'Bar Chart' },
         ],
         [
-          { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#CD0A1B" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 2, title: 'Sales by Product (Bar)' },
-          { content: <BarChartWidget labels={byProduct.labels} values={byProduct.values} horizontal color="#8B8A8A" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 2, title: 'Sales by Product (Bar)' },
+          { content: <BarChartWidget label="Sales by Product (Bar 5)" labels={byProduct.labels} values={byProduct.values} horizontal color="#CD0A1B" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 2, title: 'Sales by Product (Bar)' },
+          { content: <BarChartWidget label="Sales by Product (Bar 6)" labels={byProduct.labels} values={byProduct.values} horizontal color="#8B8A8A" selectedLabel={selectedProductLabel} onBarClick={handleProductClick} />, span: 2, title: 'Sales by Product (Bar)' },
         ],
       ]}
       table={<DataTable columns={columns} data={tableRows} maxHeight="320px" />}
-      tableTitle="All Sample Rows"
+      tableTitle={
+        <>
+          All Sample Rows
+          <ExportButton inline label="Download table as CSV" onClick={() => downloadCsv('executive-summary-sample-rows.csv', data.columns, tableRows)} />
+        </>
+      }
     />
   )
 }

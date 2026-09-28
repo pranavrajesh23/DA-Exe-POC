@@ -1,6 +1,8 @@
 import { Bar } from 'react-chartjs-2'
 import type { ChartEvent, ActiveElement } from 'chart.js'
 import { stackedCartesianChartOptions, stackedHorizontalCartesianChartOptions } from '../chartOptions'
+import { useChartImageExport } from '../../../hooks/useChartImageExport'
+import { ExportButton } from '../../common/ExportButton/ExportButton'
 
 export type StackedSeries = {
   label: string
@@ -11,6 +13,7 @@ export type StackedSeries = {
 type StackedBarChartWidgetProps = {
   labels: string[]
   series: StackedSeries[]
+  title?: string
   horizontal?: boolean
   selectedLabel?: string | null
   onBarClick?: (label: string) => void
@@ -20,7 +23,8 @@ type StackedBarChartWidgetProps = {
 // category (horizontal) and a stacked time series (vertical), the two new
 // visual shapes the Battery Assets export needed that the single-series
 // BarChartWidget can't render.
-export function StackedBarChartWidget({ labels, series, horizontal = false, selectedLabel, onBarClick }: StackedBarChartWidgetProps) {
+export function StackedBarChartWidget({ labels, series, title = 'stacked-chart', horizontal = false, selectedLabel, onBarClick }: StackedBarChartWidgetProps) {
+  const { chartRef, exportImage } = useChartImageExport(title)
   // Same dimming rule as BarChartWidget/PieChartWidget: a click-to-filter
   // selection dims every non-matching category across all stacked series.
   // Always build backgroundColor as a fresh array (never fall back to the
@@ -50,5 +54,10 @@ export function StackedBarChartWidget({ labels, series, horizontal = false, sele
       }
     : baseOptions
 
-  return <Bar data={data} options={options} />
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <Bar ref={chartRef} data={data} options={options} />
+      <ExportButton onClick={exportImage} label="Download chart as image" />
+    </div>
+  )
 }

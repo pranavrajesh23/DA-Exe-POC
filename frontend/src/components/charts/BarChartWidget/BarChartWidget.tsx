@@ -1,6 +1,8 @@
 import { Bar } from 'react-chartjs-2'
 import type { ChartEvent, ActiveElement } from 'chart.js'
 import { cartesianChartOptions, horizontalCartesianChartOptions } from '../chartOptions'
+import { useChartImageExport } from '../../../hooks/useChartImageExport'
+import { ExportButton } from '../../common/ExportButton/ExportButton'
 
 type BarChartWidgetProps = {
   labels: string[]
@@ -21,6 +23,8 @@ export function BarChartWidget({
   selectedLabel,
   onBarClick,
 }: BarChartWidgetProps) {
+  const { chartRef, exportImage } = useChartImageExport(label)
+
   // Dim non-selected bars so a click-to-filter selection is visible on the
   // chart, matching Power BI's cross-filter highlight behavior. Always build
   // this as an array (never fall back to a plain color string) -- Chart.js
@@ -49,5 +53,10 @@ export function BarChartWidget({
       }
     : baseOptions
 
-  return <Bar data={data} options={options} />
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <Bar ref={chartRef} data={data} options={options} />
+      <ExportButton onClick={exportImage} label="Download chart as image" />
+    </div>
+  )
 }

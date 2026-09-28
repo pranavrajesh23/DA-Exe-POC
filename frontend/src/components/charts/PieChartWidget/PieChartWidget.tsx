@@ -1,18 +1,23 @@
 import { Pie } from 'react-chartjs-2'
 import type { ChartEvent, ActiveElement } from 'chart.js'
 import { radialChartOptions } from '../chartOptions'
+import { useChartImageExport } from '../../../hooks/useChartImageExport'
+import { ExportButton } from '../../common/ExportButton/ExportButton'
 
 type PieChartWidgetProps = {
   labels: string[]
   values: number[]
   colors?: string[]
+  title?: string
   selectedLabel?: string | null
   onSliceClick?: (label: string) => void
 }
 
 const defaultColors = ['#CD0A1B', '#221F1F', '#8B8A8A', '#F0941C', '#AA0011', '#C0BFBF']
 
-export function PieChartWidget({ labels, values, colors = defaultColors, selectedLabel, onSliceClick }: PieChartWidgetProps) {
+export function PieChartWidget({ labels, values, colors = defaultColors, title = 'pie-chart', selectedLabel, onSliceClick }: PieChartWidgetProps) {
+  const { chartRef, exportImage } = useChartImageExport(title)
+
   // Always an array (never fall back to the plain `colors` array reference
   // unmodified) so Chart.js repaints every slice back to full color once a
   // selection is cleared -- see BarChartWidget for why the type must stay
@@ -38,5 +43,10 @@ export function PieChartWidget({ labels, values, colors = defaultColors, selecte
       }
     : radialChartOptions
 
-  return <Pie data={data} options={options} />
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <Pie ref={chartRef} data={data} options={options} />
+      <ExportButton onClick={exportImage} label="Download chart as image" />
+    </div>
+  )
 }

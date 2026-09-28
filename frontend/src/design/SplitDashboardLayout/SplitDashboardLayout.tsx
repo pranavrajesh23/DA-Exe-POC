@@ -8,7 +8,7 @@ type SplitDashboardLayoutProps = {
   splitRow: [Panel, Panel]
   columns: Panel[]
   table: ReactNode
-  tableTitle?: string
+  tableTitle?: ReactNode
 }
 
 // A second reusable grid template, alongside DashboardLayout: a KPI band,

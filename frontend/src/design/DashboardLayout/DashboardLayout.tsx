@@ -11,7 +11,7 @@ type DashboardLayoutProps = {
   topChartTitle?: string
   columns: ColumnPanel[][]
   table: ReactNode
-  tableTitle?: string
+  tableTitle?: ReactNode
 }
 
 export function DashboardLayout({

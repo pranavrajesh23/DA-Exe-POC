@@ -1,5 +1,7 @@
 import { Line } from 'react-chartjs-2'
 import type { Chart, ChartDataset } from 'chart.js'
+import { useChartImageExport } from '../../../hooks/useChartImageExport'
+import { ExportButton } from '../../common/ExportButton/ExportButton'
 
 type LineChartWidgetProps = {
   labels: string[]
@@ -55,6 +57,7 @@ const options = {
 }
 
 export function LineChartWidget({ labels, values, label = 'Value', color = '#595959' }: LineChartWidgetProps) {
+  const { chartRef, exportImage } = useChartImageExport(label)
   const data = {
     labels,
     datasets: [
@@ -70,5 +73,10 @@ export function LineChartWidget({ labels, values, label = 'Value', color = '#595
       },
     ],
   }
-  return <Line data={data} options={options} plugins={[valueLabelPlugin]} />
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <Line ref={chartRef} data={data} options={options} plugins={[valueLabelPlugin]} />
+      <ExportButton onClick={exportImage} label="Download chart as image" />
+    </div>
+  )
 }

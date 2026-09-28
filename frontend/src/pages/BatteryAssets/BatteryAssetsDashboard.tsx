@@ -3,10 +3,12 @@ import { useBatteryAssetsSummary } from '../../hooks/useBatteryAssetsSummary'
 import { useSalesData } from '../../hooks/useSalesData'
 import { useCrossFilter } from '../../hooks/useCrossFilter'
 import { formatDateShort } from '../../utils/date'
+import { downloadCsv } from '../../utils/downloadFile'
 import { SplitDashboardLayout } from '../../design/SplitDashboardLayout/SplitDashboardLayout'
 import { StackedBarChartWidget } from '../../components/charts/StackedBarChartWidget/StackedBarChartWidget'
 import { BarChartWidget } from '../../components/charts/BarChartWidget/BarChartWidget'
 import { PieChartWidget } from '../../components/charts/PieChartWidget/PieChartWidget'
+import { ExportButton } from '../../components/common/ExportButton/ExportButton'
 import './BatteryAssetsDashboard.css'
 
 // Same 5-slot color order the reference export used for both the hierarchy
@@ -45,6 +47,7 @@ export function BatteryAssetsDashboard() {
           content: (
             <StackedBarChartWidget
               horizontal
+              title="NRU Count by Hierarchy"
               labels={data.hierarchy.labels}
               series={data.hierarchy.series.map((s, i) => ({ label: s.label, values: s.values, color: STACK_COLORS[i % STACK_COLORS.length] }))}
               selectedLabel={valueFor('Region')}
@@ -57,6 +60,7 @@ export function BatteryAssetsDashboard() {
           flex: 3,
           content: (
             <StackedBarChartWidget
+              title="Weekly NRU Count"
               labels={weeklyLabels}
               series={data.weekly.series.map((s, i) => ({ label: s.label, values: s.values, color: STACK_COLORS[i % STACK_COLORS.length] }))}
             />
@@ -68,6 +72,7 @@ export function BatteryAssetsDashboard() {
           title: 'Total NRU Makeup',
           content: (
             <PieChartWidget
+              title="Total NRU Makeup"
               labels={data.makeup.labels}
               values={data.makeup.values}
               colors={MAKEUP_COLORS}
@@ -80,6 +85,7 @@ export function BatteryAssetsDashboard() {
           title: 'NRUs by NRU Category',
           content: (
             <BarChartWidget
+              label="NRUs by NRU Category"
               labels={data.category.labels}
               values={data.category.values}
               color="#F0941C"
@@ -92,6 +98,7 @@ export function BatteryAssetsDashboard() {
           title: 'NRUs by Days Not Reporting',
           content: (
             <BarChartWidget
+              label="NRUs by Days Not Reporting"
               labels={data.daysNotReporting.labels}
               values={data.daysNotReporting.values}
               color="#AA0011"
@@ -102,7 +109,18 @@ export function BatteryAssetsDashboard() {
         },
       ]}
       table={detail ? <DataTable columns={detailColumns} data={detailRows} maxHeight="320px" /> : <p className="ba-status">Loading detail rows…</p>}
-      tableTitle="Detail NRU Report - Battery Assets"
+      tableTitle={
+        <>
+          Detail NRU Report - Battery Assets
+          {detail && (
+            <ExportButton
+              inline
+              label="Download table as CSV"
+              onClick={() => downloadCsv('detail-nru-report-battery-assets.csv', detail.columns, detailRows)}
+            />
+          )}
+        </>
+      }
     />
   )
 }
